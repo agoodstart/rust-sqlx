@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    postgres:
+        restart: always
+        container_name: postgres_db
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        volumes:
+            - /var/lib/postgresql/data
+        environment:
+            POSTGRES_PASSWORD: mysecretpassword
+    pgadmin:
+        restart: always
+        container_name: pgadmin_tool
+        image: dpage/pgadmin4:latest
+        ports:
+            - "80:80"
+        environment:
+            PGADMIN_DEFAULT_EMAIL: jvalkenhoff@outlook.com
+            PGADMIN_DEFAULT_PASSWORD: SuperSecret
